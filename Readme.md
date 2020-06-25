@@ -32,9 +32,9 @@ Das Ziel dieser Aufgabe ist die Implementierung einer simplen Taschenrechner-App
 
 ## Tipps zum Vorgehen
 
-- Entwerfen Sie ein User Interface das über die notwendigen Elemente für die Interaktion mit dem Taschenrechner verfügt. Dabei sind vor allem die _Buttons_ für die Zahlen und Operatoren und ein Bereich zur Anzeige des Terms bzw. Ausgabe des Ergebnis wichtig.
-- Erlauben Sie den NutzerInnen durch Interaktion mit den _Buttons_ einen Term einzugeben.
-- Berechnen Sie bei der Interaktion mit dem `=`-Button das Ergebnis und zeigen Sie dies im UI an. Nutzen Sie dafür die vorgegebene `CalculatorHelper`-Klasse.
+- Entwerft ein _User Interface_ das über die notwendigen Elemente für die Interaktion mit dem Taschenrechner verfügt. Dabei sind vor allem die _Buttons_ für die Zahlen und Operatoren und ein Bereich zur Anzeige des Terms bzw. Ausgabe des Ergebnis wichtig.
+- Erlaubt den NutzerInnen durch Interaktion mit den _Buttons_ einen Term einzugeben. Der Term kann dabei erstmal ein einfacher _String_ sein, in dem Zahlen und Operatoren in der Reihenfolge erscheinen, in der sie eingegeben wurden. Der aktuelle Term sollte stets sichtbar sein.
+- Berechnet, nach dem die NutzerInnen auf den `=`-Button geklickt haben, das Ergebnis und zeigt dies im UI an. Nutzt dafür die vorgegebene `CalculatorHelper`-Klasse.
 
 ## Screenshots
 
