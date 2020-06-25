@@ -1,6 +1,6 @@
 ---
-title: Android Basisapplikation
-author: Zuletzt bearbeitet von Alexander Bazo
+title: U12-Taschenrechner
+author: Zuletzt bearbeitet von Tim Eichinger
 documentclass: scrartcl
 classoption:
   - a4paper
@@ -15,37 +15,22 @@ header-includes: |
     \cfoot{\includegraphics[height=2cm]{docs/footer.png}}
 ---
 
-# Android Basisapplikation
-
-Dieses Repository dient als Vorlage für die Übungsaufgaben des Android-Kurses. Im `master`-Branch des
-Repositorys befindet sich das Starterpaket, das als Ausgangslage für die Bearbeitung durch die Studierenden
-dient. Die Aufgabenbeschreibung wird in der `Readme.md`-Datei verfasst. Zugehörige Dateien, z.B. Bilder
-oder Videos, werden im Ordner `/docs` abgelegt. Der fertige Lösungsvorschlag wird auf Basis des Starterpakets
-in einem separaten Branch `solution` gepflegt. **Dieser Abschnitt wird durch eine kurze Beschreibung der
-jeweiligen Aufgabe ersetzt. Unter der Kurzbeschreibung wird ein aussagekräftiger Screenshot der zu
-entwickelnden Anwendung platziert.**
+# U12-Taschenrechner
 
 ![](./docs/cover.png)
 
-## Downloads
+## Aufgabe
 
-- [Download des Starterpakets](Link zum direkten Download des Master-Branch)
-- [Download des Lösungsvorschlag](Link zum direkten Download des Solution-Branch)
+Das Ziel dieser Aufgabe ist die Implementierung einer simplen Taschenrechner-App. Dabei ist nur die CalculatorHelper-Klasse vorgegeben, mit der man einen mathematischen Term (`String`) berechnen kann. UI, Eingabe und Ausgabe kann dabei komplett frei gestaltet werden
 
-## Aufgabenbeschreibung
+## Hinweise
 
-Hier folgt die Aufgabenbeschreibung auf Basis des ursprünglichen Handouts.
+* Ihr könnt euch an den Screenshots unten orientieren, müsst euch aber nicht daran halten. Das Design ist von euch frei wählbar.
+* Für die eigentliche Berechnung wird die [exp4j-Library](https://www.objecthunter.net/exp4j/index.html) verwendet, die bereits implementiert ist und in der CalculatorHelper-Klasse verwendet wird
+* Die `CalculatorHelper`-Klasse besitzt eine statische öffentliche Methode `calculate(String expression)`. Diese berechnet das Ergebnis eines mathematischen Terms und gibt es als String zurück. Dabei können als Operatoren folgende Zeichen verwendet werden: **Addition** (`+`), **Subtraktion** (`-`), **Multiplikation** (`*` oder `x`), **Division** (`/` oder `÷`)
 
----
+## Screenshots
 
-## Hinweise zur Arbeit mit dieser Vorlage
-
-1. Für jede Aufgabe wird ein neues Repository in der Organisation `Android-Regensburg` erstellt. Grundlage (*Template*) ist [dieses Repository](https://github.com/Android-Regensburg/Template-Uebungsaufgaben).
-2. Die Repositorys werden einheitlich nach dem Muster `U` + laufende Nummer + `-` + Name der Übung benannt.
-3. Im Master-Branch werden Aufgabenbeschreibung (*Readme*) und Starter-Code ergänzt.
-4. Eingefügte Aufgabenbeschreibung und Starter-Code werden *committet* (Commit-Message: *Initialer Commit mit Aufgabenbeschreibung und Starterpaket*).
-5. Auf Basis des Master-Branch wird eine neue Branch `solution` erstellt. Dort wird der bestehende Code mit dem Lösungsvorschlag ergänzt und *comittet* (Commit-Message: *Lösungsvorschlag ergänzt*).
-
-Da Code und Repository ggf. auch den Studierenden zugänglich gemacht werden, werden Commit-Messages, Issues und In-Code-Kommentare auf Deutsch verfasst.
-
-**Auf Basis der `YAML`-Metadaten zu Beginn der Datei kann mit *pandoc* ein PDF des Dokuments mit korrekter Formatierung erzeugt werden.**
+| | | |
+|-|-|-|
+|![Screenshot der Taschenrechner-App](./docs/screenshot-1.png "Beim Start"){ height=8cm } |![Screenshot der Taschenrechner-App](./docs/screenshot-2.png "Bei der Eingabe"){ height=8cm } |![Screenshot der Taschenrechner-App](./docs/screenshot-3.png "Beim Anzeigen des Ergebnisses"){ height=8cm } |
