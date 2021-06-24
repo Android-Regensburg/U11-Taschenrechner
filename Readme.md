@@ -23,7 +23,3 @@ Das Ziel dieser Aufgabe ist die Implementierung einer simplen Taschenrechner-App
 |  Start   |   Eingabe    |   Ergebnisse    |
 |:------:|:-------:|:-------:|
 | ![Screenshot der Taschenrechner-App](./docs/screenshot-1.png)  | ![Screenshot der Taschenrechner-App](./docs/screenshot-2.png)  | ![Screenshot der Taschenrechner-App](./docs/screenshot-3.png ) |
-
-| | | |
-|-|-|-|
-|![Screenshot der Taschenrechner-App](./docs/screenshot-1.png "Beim Start"){ height=8cm } |![Screenshot der Taschenrechner-App](./docs/screenshot-2.png "Bei der Eingabe"){ height=8cm } |![Screenshot der Taschenrechner-App](./docs/screenshot-3.png "Beim Anzeigen des Ergebnisses"){ height=8cm } |
