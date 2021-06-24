@@ -1,23 +1,5 @@
----
-title: U12-Taschenrechner
-author: Zuletzt bearbeitet von Tim Eichinger
-documentclass: scrartcl
-classoption:
-  - a4paper
-header-includes: |
-    \usepackage{german} 
-    \usepackage[a4paper,left=2.5cm, right=2.5cm,top=2.5cm, bottom=3cm]{geometry}
-    \usepackage{fancyhdr}
-    \pagestyle{fancy}
-    \fancyhf{}
-    \rhead{Mobile Apps für Android}
-    \lhead{Übungsaufgaben}
-    \cfoot{\includegraphics[height=2cm]{docs/footer.png}}
----
 
-# U12-Taschenrechner
-
-![](./docs/cover.png)
+# U12 | Ein Taschenrechner
 
 ## Aufgabe
 
@@ -37,6 +19,10 @@ Das Ziel dieser Aufgabe ist die Implementierung einer simplen Taschenrechner-App
 - Berechnet, nach dem die NutzerInnen auf den `=`-Button geklickt haben, das Ergebnis und zeigt dies im UI an. Nutzt dafür die vorgegebene `CalculatorHelper`-Klasse.
 
 ## Screenshots
+
+|  Start   |   Eingabe    |   Ergebnisse    |
+|:------:|:-------:|:-------:|
+| ![Screenshot der Taschenrechner-App](./docs/screenshot-1.png)  | ![Screenshot der Taschenrechner-App](./docs/screenshot-2.png)  | ![Screenshot der Taschenrechner-App](./docs/screenshot-3.png ) |
 
 | | | |
 |-|-|-|
