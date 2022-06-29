@@ -16,31 +16,39 @@ public class CalculatorHelper {
      */
     public static String calculate(String expression) {
         String cleanedExpression = cleanExpression(expression);
+        if (checkError(cleanedExpression)) return ERROR_MESSAGE;
+        return evaluateExpression(cleanedExpression);
+    }
 
-        if (expression.contains(ERROR_UPPER_CASE)) return ERROR_MESSAGE;
-
-        Expression exp = new ExpressionBuilder(cleanedExpression).build();
-
+    private static String evaluateExpression(String expression) {
+        Expression exp = new ExpressionBuilder(expression).build();
         try {
             return String.valueOf(exp.evaluate());
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             return ERROR_MESSAGE;
         }
     }
 
+    private static boolean checkError(String expression) {
+        return expression.contains(ERROR_MESSAGE) || expression.contains(ERROR_UPPER_CASE);
+    }
+
     private static String cleanExpression(String expression) {
         String result = expression.toUpperCase();
-
-        if (result.contains("X")) {
-            result = result.replaceAll("X", "*");
-        }
-
-        if (result.contains("÷")) {
-            result = result.replaceAll("÷", "/");
-        }
-
+        result = replaceXByStar(result);
+        result = replaceDivideBySlash(result);
         return result;
 
+    }
+
+    private static String replaceXByStar(String expression) {
+        if(expression.contains("X")) return expression.replaceAll("X", "*");
+        return expression;
+    }
+
+    private static String replaceDivideBySlash(String expression) {
+        if(expression.contains("÷")) return expression.replaceAll("÷", "/");
+        return expression;
     }
 
 }
