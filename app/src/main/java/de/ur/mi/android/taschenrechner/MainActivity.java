@@ -1,14 +1,12 @@
 package de.ur.mi.android.taschenrechner;
 
+import android.app.Activity;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import de.ur.mi.android.taschenrechner.ui.button.Button;
 import de.ur.mi.android.taschenrechner.ui.display.Display;
 import de.ur.mi.android.taschenrechner.ui.numpad.Numpad;
 
-public class MainActivity extends AppCompatActivity implements Numpad.NumpadListener {
+public class MainActivity extends Activity implements Numpad.NumpadListener {
 
     private Numpad numpad;
     private Display display;
