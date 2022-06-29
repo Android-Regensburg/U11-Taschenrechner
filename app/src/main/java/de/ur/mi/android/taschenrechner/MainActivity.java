@@ -1,5 +1,6 @@
 package de.ur.mi.android.taschenrechner;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +24,7 @@ import de.ur.mi.android.taschenrechner.ui.numpad.Numpad;
  * Ergebnisses. Hier wird der eingegebene Term mithilfe des CalculatorHelper in das korrekte
  * Ergebnis umgewandelt.
  */
-public class MainActivity extends AppCompatActivity implements Numpad.NumpadListener {
+public class MainActivity extends Activity implements Numpad.NumpadListener {
 
     private Numpad numpad; // Selbsterstelle Klasse, die das Handling des Tastenfelds kapselt
     private Display display; // Selbsterstelle Klasse, die das Handling der TextViews kapselt
