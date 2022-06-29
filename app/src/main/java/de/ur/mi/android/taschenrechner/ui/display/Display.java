@@ -12,8 +12,8 @@ public class Display {
 
     private static final String DEFAULT_TERM = ""; // Inhalt für ein "leeres" Display
 
-    private TextView termView; // TextView zur Darstellung des aktuellen Terms
-    private TextView resultView; // TextView zur Darstellung des ausgewerteten Terms (= Ergebnis)
+    private final TextView termView; // TextView zur Darstellung des aktuellen Terms
+    private final TextView resultView; // TextView zur Darstellung des ausgewerteten Terms (= Ergebnis)
     private String currentTerm; // Zwischenspeicher des aktuellen Term als String
 
     public Display(TextView termView, TextView resultView) {

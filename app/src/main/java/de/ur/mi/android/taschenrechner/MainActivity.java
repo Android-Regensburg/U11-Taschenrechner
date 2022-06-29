@@ -26,7 +26,6 @@ import de.ur.mi.android.taschenrechner.ui.numpad.Numpad;
  */
 public class MainActivity extends Activity implements Numpad.NumpadListener {
 
-    private Numpad numpad; // Selbsterstelle Klasse, die das Handling des Tastenfelds kapselt
     private Display display; // Selbsterstelle Klasse, die das Handling der TextViews kapselt
 
     @Override
@@ -42,7 +41,8 @@ public class MainActivity extends Activity implements Numpad.NumpadListener {
      */
     private void initUI() {
         setContentView(R.layout.activity_main);
-        numpad = new Numpad(getApplicationContext(), findViewById(R.id.view_input_numpad), this);
+        // Selbsterstelle Klasse, die das Handling des Tastenfelds kapselt
+        Numpad numpad = new Numpad(getApplicationContext(), findViewById(R.id.view_input_numpad), this);
         display = new Display(findViewById(R.id.text_output_term), findViewById(R.id.text_output_result));
     }
 
