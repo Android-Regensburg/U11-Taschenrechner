@@ -27,6 +27,7 @@ public class NumpadButtonViewHolder extends RecyclerView.ViewHolder implements V
     }
 
     public void bindButton(Button button) {
+        // Je nach Typ des Knopfs wird ein anderer Hintergrund verwendet, um diese leichter zu unterscheiden.
         if (button.type == ButtonType.OPERATOR) {
             textView.setBackground(AppCompatResources.getDrawable(context, R.drawable.operator_button_shape));
         }
@@ -38,6 +39,7 @@ public class NumpadButtonViewHolder extends RecyclerView.ViewHolder implements V
 
     @Override
     public void onClick(View v) {
+        // Der Listener wird informiert wenn der Knopf gedrückt wurde.
         listener.onButtonClicked(getAbsoluteAdapterPosition());
     }
 

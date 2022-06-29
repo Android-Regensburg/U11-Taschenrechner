@@ -11,6 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import de.ur.mi.android.taschenrechner.R;
 import de.ur.mi.android.taschenrechner.ui.button.Button;
 
+/*
+    Der NumpadAdapter kümmert sich um die Darstellung der einzelnen Knöpfe im UI.
+    Dabei sollen unterschiedliche Knopftypen unterschiedliche Farben haben und jeder Knopf passend
+    beschriftet sein.
+    Darüber hinaus wird ein im Konstruktor übergebener Listener über Klicks auf die Knöpfe informiert.
+ */
 public class NumpadAdapter extends RecyclerView.Adapter<NumpadButtonViewHolder> implements NumpadButtonViewHolder.OnCLickListener {
 
     public final Context context;
@@ -25,6 +31,7 @@ public class NumpadAdapter extends RecyclerView.Adapter<NumpadButtonViewHolder> 
     @NonNull
     @Override
     public NumpadButtonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // Die Viewholer werden basierend auf dem Layout für Ziffernblockknöpfe erzeugt.
         View buttonView = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_numpad_button, parent, false);
         return new NumpadButtonViewHolder(buttonView, context, this);
     }
@@ -36,11 +43,13 @@ public class NumpadAdapter extends RecyclerView.Adapter<NumpadButtonViewHolder> 
 
     @Override
     public int getItemCount() {
+        // Für jeden möglichen Button soll ein View angezeigt werden.
         return buttons.length;
     }
 
     @Override
     public void onButtonClicked(int adapterPosition) {
+        // Der Listener wird über Klicks auf Knöpfe informiert.
         listener.onButtonPressed(buttons[adapterPosition]);
     }
 
