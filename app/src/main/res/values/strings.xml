@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">U12-Taschenrechner</string>
+    <string name="title">Taschenrechner</string>
 </resources>
