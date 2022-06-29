@@ -22,7 +22,6 @@ public class Numpad implements NumpadAdapter.ButtonListener {
         view.setAdapter(adapter);
     }
 
-
     @Override
     public void onButtonPressed(Button button) {
         switch (button.type) {
@@ -30,9 +29,7 @@ public class Numpad implements NumpadAdapter.ButtonListener {
                 listener.onNumberButtonPressed(button);
                 break;
             case OPERATOR:
-                if (lastButtonPressed == null) {
-                    listener.onOperatorButtonPressed(button);
-                } else if (lastButtonPressed.type != ButtonType.OPERATOR) {
+                if (lastButtonPressed == null || lastButtonPressed.type != ButtonType.OPERATOR) {
                     listener.onOperatorButtonPressed(button);
                 } else {
                     listener.onOperatorButtonOverwritten(button);

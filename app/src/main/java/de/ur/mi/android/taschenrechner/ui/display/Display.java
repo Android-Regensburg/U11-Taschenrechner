@@ -8,8 +8,8 @@ public class Display {
 
     private static final String DEFAULT_TERM = "";
 
-    private TextView termView;
-    private TextView resultView;
+    private final TextView termView;
+    private final TextView resultView;
     private String currentTerm;
 
     public Display(TextView termView, TextView resultView) {
