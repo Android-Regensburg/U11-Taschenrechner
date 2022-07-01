@@ -5,85 +5,98 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+import android.app.Activity;
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+
+import de.ur.mi.android.taschenrechner.ui.button.Button;
+import de.ur.mi.android.taschenrechner.ui.display.Display;
+import de.ur.mi.android.taschenrechner.ui.numpad.Numpad;
 
 import de.ur.mi.android.taschenrechner.helper.CalculatorHelper;
 
-public class MainActivity extends Activity {
+/**
+ * Zentrale Activity der Taschenrechner-App
+ *
+ * In dieser Activity werden die beiden UI-Komponenten der App initialisiert und gesteuert. Die
+ * Activity fungiert dabei als Vermittler zwischen dem Tastenfeld (Numpad) zur Eingabe der
+ * mathematischen Terme und den Textfeldern (Display) zur Ausgabe der jeweiligen Ergebnisse.
+ *
+ * Numpad: Verwaltet das Tastenfeld und informiert diese Activity über die Buttons, die von den
+ * Nutzer*innen gedrückt wurden. Diese Informationen werden an das Display zur Darstellung von
+ * Term und Ergebnis weitergegeben.
+ *
+ * Display: Verwaltet die beiden Textfelder zur Anzeige des aktuellen Terms und des entsprechenden
+ * Ergebnisses. Hier wird der eingegebene Term mithilfe des CalculatorHelper in das korrekte
+ * Ergebnis umgewandelt.
+ */
+public class MainActivity extends Activity implements Numpad.NumpadListener {
 
-    private TextView tvExpression;
-
-    private int[] normalButtons = { R.id.btn_zero, R.id.btn_one, R.id.btn_two, R.id.btn_three,
-            R.id.btn_four, R.id.btn_five, R.id.btn_six, R.id.btn_seven, R.id.btn_eight, R.id.btn_nine,
-            R.id.btn_dot, R.id.btn_multiply, R.id.btn_divide, R.id.btn_add, R.id.btn_subtract
-    };
-
-    private Button btnClear, btnEquals;
+    private Display display; // Selbsterstelle Klasse, die das Handling der TextViews kapselt
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         initUI();
-        setClickListeners();
-
     }
 
+    /*
+     * Initialisiert die beiden UI-Komponenten Numpad und Display. Die dort notwendigen Views werden
+     * auf Ebene der Acitivity selektiert (findViewById) und als Parameter and die Konstruktoren der
+     * jeweiligen Elemente weitergegeben.
+     */
     private void initUI() {
         setContentView(R.layout.activity_main);
-
-        tvExpression = findViewById(R.id.tv_expression);
-
-        btnClear = findViewById(R.id.btn_clear);
-        btnEquals = findViewById(R.id.btn_equals);
+        // Selbsterstelle Klasse, die das Handling des Tastenfelds kapselt
+        Numpad numpad = new Numpad(getApplicationContext(), findViewById(R.id.view_input_numpad), this);
+        display = new Display(findViewById(R.id.text_output_term), findViewById(R.id.text_output_result));
     }
 
-    private void setClickListeners() {
-
-        //ClickListener für alle numerischen Buttons
-        for (int numericButtonId : normalButtons) {
-            findViewById(numericButtonId).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onNumericButtonClicked(v);
-                }
-            });
-        }
-
-        btnClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClearButtonClicked();
-            }
-        });
-
-        btnEquals.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onEqualsButtonClicked();
-            }
-        });
-
+    /*
+     * Callback-Methode aus dem Numpad, die aufgerufen wird, wenn über das Tastenfeld eine Zahl
+     * eingegeben wird.
+     */
+    @Override
+    public void onNumberButtonPressed(Button button) {
+        display.appendTerm(button.label);
     }
 
-    private void onEqualsButtonClicked() {
-        String expression = tvExpression.getText().toString();
-        if (!expression.isEmpty()) {
-            String result = CalculatorHelper.calculate(expression);
-            tvExpression.setText(result);
-        }
+    /*
+     * Callback-Methode aus dem Numpad, die aufgerufen wird, wenn über das Tastenfeld ein Operator
+     * (+,-,*,/ oder .) eingegeben wird.
+     */
+    @Override
+    public void onOperatorButtonPressed(Button button) {
+        display.appendTerm(button.label);
     }
 
-    private void onClearButtonClicked() {
-        tvExpression.setText("");
+    /*
+     * Callback-Methode aus dem Numpad, die aufgerufen wird, wenn über das Tastenfeld direkt nach
+     * einem Operator erneut ein solcher eingegeben wird. Durch das separate Handling dieses
+     * besonderen Falls wird vermieden, dass ungültige Terme mit direkt aufeinander folgenden
+     * Operatoren entstehen.
+     */
+    @Override
+    public void onOperatorButtonOverwritten(Button button) {
+        display.replaceLastOperator(button.label);
     }
 
-    private void onNumericButtonClicked(View v) {
-        String currentExpression = tvExpression.getText().toString();
-        Button clickedButton = (Button) v;
-        String newExpression = currentExpression + clickedButton.getText();
-        tvExpression.setText(newExpression);
+    /*
+     * Callback-Methode aus dem Numpad, die aufgerufen wird, wenn auf dem Tastenfeld die C-Taste
+     * (clear) gedrückt wird.
+     */
+    @Override
+    public void onClearButtonPressed() {
+        display.clear();
     }
 
+    /*
+     * Callback-Methode aus dem Numpad, die aufgerufen wird, wenn auf dem Tastenfeld die Gleich-Taste
+     * (=) gedrückt wird.
+     */
+    @Override
+    public void onResultButtonPressed() {
+        display.solve();
+    }
 }
