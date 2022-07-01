@@ -36,5 +36,5 @@ Die folgende Reihenfolge der Bearbeitung ist möglich aber nicht vorgeschrieben.
 ## Screenshots
 
 |  Start   |   Eingabe    |   Ergebnisse    |
-|:------:|:-------:|:-------:|
+|:-------:|:-------:|:-------:|
 | ![Screenshot der Taschenrechner-App](./docs/screenshot-1.png)  | ![Screenshot der Taschenrechner-App](./docs/screenshot-2.png)  | ![Screenshot der Taschenrechner-App](./docs/screenshot-3.png ) |
