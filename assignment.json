@@ -3,9 +3,9 @@
     "abstract": "In dieser Aufgabe implementieren Sie selbständig einen Taschenrechner für die Android-Plattform. Auf Basis einer vorgegebenen Klasse, in der die eigentlichen Berechnungen durchgeführt werden, gestalten Sie dabei frei alle Aspekte des User Interface.",
     "hasStarterCode": true,
     "hasSolutionCode": true,
-    "solutionComment": "Einfache Lösung mit gesamter Funktionalität innerhalb der Activity.",
-    "advancedSolutionComment": "Komplexere Lösung mit angepasstem UI, erweiterter Funktionalität und stärker strukturiertem Quellcode mit separaten Klassen für die unterschiedlichen UI-Bereiche.",
+    "solutionComment": "Lösungsvorschlag für die Taschenrechner App.",
+    "advancedSolutionComment": "",
     "hasSimpleSolutionCode": false,
-    "hasAdvancedSolutionCode": true,
-    "solutionAvailableOn": "2021-07-08"
+    "hasAdvancedSolutionCode": false,
+    "solutionAvailableOn": "2022-07-08"
 }
